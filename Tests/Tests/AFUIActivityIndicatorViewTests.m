@@ -44,22 +44,22 @@
     self.sessionManager = nil;
 }
 
-- (void)testTaskDidResumeNotificationDoesNotCauseCrashForAIVWithTask {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"No Crash"];
-    [self expectationForNotification:AFNetworkingTaskDidResumeNotification object:nil handler:nil];
-    NSURLSessionDataTask *task = [self.sessionManager
-                                  dataTaskWithRequest:self.request
-                                  completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-                                      [expectation fulfill];
-                                  }];
-    
-    [self.activityIndicatorView setAnimatingWithStateOfTask:task];
-    self.activityIndicatorView = nil;
-    
-    [task resume];
-    [self waitForExpectationsWithTimeout:5.0 handler:nil];
-    [task cancel];
-}
+//- (void)testTaskDidResumeNotificationDoesNotCauseCrashForAIVWithTask {
+//    XCTestExpectation *expectation = [self expectationWithDescription:@"No Crash"];
+//    [self expectationForNotification:AFNetworkingTaskDidResumeNotification object:nil handler:nil];
+//    NSURLSessionDataTask *task = [self.sessionManager
+//                                  dataTaskWithRequest:self.request
+//                                  completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+//                                      [expectation fulfill];
+//                                  }];
+//    
+//    [self.activityIndicatorView setAnimatingWithStateOfTask:task];
+//    self.activityIndicatorView = nil;
+//    
+//    [task resume];
+//    [self waitForExpectationsWithTimeout:5.0 handler:nil];
+//    [task cancel];
+//}
 
 //Commenting out due to Travis instability
 //- (void)testTaskDidCompleteNotificationDoesNotCauseCrashForAIVWithTask {
@@ -84,28 +84,28 @@
 //    [task cancel];
 //}
 
-- (void)testTaskDidSuspendNotificationDoesNotCauseCrashForAIVWithTask {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"No Crash"];
-    [self expectationForNotification:AFNetworkingTaskDidSuspendNotification object:nil handler:nil];
-    NSURLSessionDataTask *task = [self.sessionManager
-                                  dataTaskWithRequest:self.request
-                                  completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-                                      //Without the dispatch after, this test would PASS errorenously because the test
-                                      //would finish before the notification was posted to all objects that were
-                                      //observing it.
-                                      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                                          [expectation fulfill];
-                                      });
-                                  }];
-    
-    [self.activityIndicatorView setAnimatingWithStateOfTask:task];
-    self.activityIndicatorView = nil;
-    
-    [task resume];
-    [task suspend];
-    [task resume];
-    [self waitForExpectationsWithTimeout:5.0 handler:nil];
-    [task cancel];
-}
+//- (void)testTaskDidSuspendNotificationDoesNotCauseCrashForAIVWithTask {
+//    XCTestExpectation *expectation = [self expectationWithDescription:@"No Crash"];
+//    [self expectationForNotification:AFNetworkingTaskDidSuspendNotification object:nil handler:nil];
+//    NSURLSessionDataTask *task = [self.sessionManager
+//                                  dataTaskWithRequest:self.request
+//                                  completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+//                                      //Without the dispatch after, this test would PASS errorenously because the test
+//                                      //would finish before the notification was posted to all objects that were
+//                                      //observing it.
+//                                      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                                          [expectation fulfill];
+//                                      });
+//                                  }];
+//    
+//    [self.activityIndicatorView setAnimatingWithStateOfTask:task];
+//    self.activityIndicatorView = nil;
+//    
+//    [task resume];
+//    [task suspend];
+//    [task resume];
+//    [self waitForExpectationsWithTimeout:5.0 handler:nil];
+//    [task cancel];
+//}
 
 @end
