@@ -26,7 +26,7 @@
 		964EE88F1B7DCD8F002488CD /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 964EE8831B7DCD8F002488CD /* AFURLResponseSerialization.m */; };
 		964EE8901B7DCD8F002488CD /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 964EE8841B7DCD8F002488CD /* AFURLSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		964EE8911B7DCD8F002488CD /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 964EE8851B7DCD8F002488CD /* AFURLSessionManager.m */; };
-		9661F6C81BF4D44100CAADB4 /* AFNetworkActivityLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 9661F6C61BF4D44100CAADB4 /* AFNetworkActivityLogger.h */; };
+		9661F6C81BF4D44100CAADB4 /* AFNetworkActivityLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 9661F6C61BF4D44100CAADB4 /* AFNetworkActivityLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9661F6C91BF4D44100CAADB4 /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9661F6C71BF4D44100CAADB4 /* AFNetworkActivityLogger.m */; };
 /* End PBXBuildFile section */
 
